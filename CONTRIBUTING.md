@@ -1,5 +1,4 @@
 # Contributing to Sanke
-___
 Thank you for taking the time to contribute.
 
 Below you will find general guidelines for contributing to Sanke. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
@@ -7,7 +6,6 @@ Below you will find general guidelines for contributing to Sanke. These are most
 *At the moment, these guidelines is not complete, and is subject to frequent additions and change.*
 
 ## How can I contribute?
-___
 
 ### Reporting bugs
 
