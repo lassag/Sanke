@@ -1,0 +1,23 @@
+{
+  "name": "sanke",
+  "version": "1.0.0",
+  "description": "Snake Game using JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Northern-Web/Sanke.git"
+  },
+  "author": "Lasse S. Tomssønn & Michael Sagnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Northern-Web/Sanke/issues"
+  },
+  "homepage": "https://github.com/Northern-Web/Sanke#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}

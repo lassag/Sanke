@@ -1,0 +1,116 @@
+:root {
+  --pitch-black: #000000;
+  --dark-grey:   #2d2d2d;
+  --light-grey:  #565656;
+  --dark-blue:   #2d629f;
+  --dark-red:    #a90b43;
+  --dark-yellow: #a0a13c;
+}
+
+html {
+
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-grey);
+  overflow: hidden;
+
+}
+
+.container {
+  padding: 0;
+  margin: auto;
+  display: block;
+  border: 1px solid black;
+  height: 600px;
+  width: 70%;
+  float: left;
+  margin-left: 1%;
+}
+
+canvas {
+  position: relative;
+
+}
+
+.scoreboard {
+  width: 15%;
+  height: 600px;
+  margin-left: 1%;
+  float: left;
+  border: 2px solid var(--dark-grey);
+  background-color: var(--dark-blue);
+  padding: 2px;
+  position: relative;
+}
+
+.scoreboard hr {
+  width: 80%;
+  border-width: thin;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-color: var(--dark-grey);
+}
+
+.scoreboard li {
+  list-style: none;
+  font-weight: bold;
+  color: var(--dark-yellow);
+}
+
+.scoreboard p {
+  position: absolute;
+  bottom: 0;
+  margin-left: 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 54px;
+  color: var(--dark-grey);
+  text-shadow: 2px 2px #000;
+  margin: 0px 5px 0px 5px;
+
+}
+
+p {
+  font-size: 22px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.score-value {
+  float: right;
+  margin-right: 15%;
+}
+
+.text-yellow {
+  color: var(--dark-yellow);
+}
+
+.text-red {
+  color: var(--dark-red);
+}
+
+.text-yellow a {
+  color: var(--dark-yellow);
+  text-decoration: none;
+}
+
+.text-yellow a:hover {
+  text-decoration: underline;
+  color: var(--dark-red);
+}
+
+.keyboard-key {
+  border-radius: 15%;
+  border: 1px solid var(--pitch-black);
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--pitch-black);
+}
