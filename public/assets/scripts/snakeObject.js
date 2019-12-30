@@ -91,16 +91,14 @@ DirectionChange(map) {
    }
 
    IsTouchingItself(){
-     for (var i = 2; i < this.positions.length; i++){
+     for (var i = 1; i < this.positions.length; i++){
        if (this.positions[0].x === this.positions[i].x
         && this.positions[0].y === this.positions[i].y){
           console.log('Snake is touching itself!');
           return true;
-        } else {
-          console.log('Snake is well raised.');
-          return false;
         }
-     }
+      }
+     return false;
    }
 
    ResetSnake(map) {
