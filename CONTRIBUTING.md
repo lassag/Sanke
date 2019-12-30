@@ -14,7 +14,9 @@ Below you will find general guidelines for contributing to Sanke. These are most
   - [Scope](#scope)
   - [Enforcement](#enforcement)
 
-
+- [How Can I Contribute](#how-can-i-contribute)
+  - [Reporting Bugs](#reporting-bugs)
+    - [How Do I Submit a (Good) Bug Report?](#how-do-i-submit-a-good-bug-report)
 
 ## Code of Conduct
 ### Our Pledge
@@ -57,7 +59,7 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 ### Reporting Bugs
 
 
-#### How do I submit a (good) bug report?
+#### How Do I Submit a (Good) Bug Report?
 Bugs are tracked using [GitHub Issues](https://guides.github.com/features/issues/). Explain the problem and include additional details to help maintainers reproduce the problem.
 
 - **Use a clear and descriptive title** for the issue to identify the problem.
