@@ -22,16 +22,24 @@ export class Snake {
 
 Direction(keyCode,keys){
   if (keyCode == keys.ARROW_LEFT || keyCode == keys.A){
-    this.direction = "LEFT";
+    if (this.direction != "RIGHT"){
+      this.direction = "LEFT";
+    }
   }
   else if (keyCode == keys.ARROW_UP || keyCode == keys.W){
-    this.direction = "UP";
+    if (this.direction != "DOWN"){
+      this.direction = "UP";
+    }
   }
   else if (keyCode == keys.ARROW_RIGHT || keyCode == keys.D){
-    this.direction = "RIGHT";
+    if (this.direction != "LEFT"){
+      this.direction = "RIGHT";
+    }
   }
   else if (keyCode == keys.ARROW_DOWN || keyCode == keys.S){
-    this.direction = "DOWN";
+    if (this.direction != "UP"){
+      this.direction = "DOWN";
+    }
   }
 }
 
