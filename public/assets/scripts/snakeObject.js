@@ -68,7 +68,7 @@ DirectionChange(map) {
     }
   }
 
-  isOutOfBounds(map){
+  IsOutOfBounds(map){
     if (   this.positions[0].x >= map.width
         || this.positions[0].x < 0
         || this.positions[0].y >= map.height

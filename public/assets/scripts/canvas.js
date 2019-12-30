@@ -138,7 +138,11 @@ function GameLoop() {
     food = Food.GetRandomFood(map);
   }
 
-  if (!snake.isOutOfBounds(map) && !snake.IsTouchingItself()) {
+  if (food.FoodInTail(snake)){
+    food = Food.GetRandomFood(map);
+  }
+
+  if (!snake.IsOutOfBounds(map) && !snake.IsTouchingItself()) {
   setTimeout(GameLoop, REFRESH_RATE);
   }
 }
