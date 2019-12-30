@@ -8,6 +8,13 @@ Below you will find general guidelines for contributing to Sanke. These are most
 ## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
+  - [Our Pledge](#our-pledge)
+  - [Our Standards](#our-standards)
+  - [Our Responsibilities](#our-Responsibilities)
+  - [Scope](#scope)
+  - [Enforcement](#enforcement)
+
+
 
 ## Code of Conduct
 ### Our Pledge
@@ -45,9 +52,9 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 
 *This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)*
 
-## How can I contribute?
+## How Can I Contribute?
 
-### Reporting bugs
+### Reporting Bugs
 
 
 #### How do I submit a (good) bug report?
