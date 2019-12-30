@@ -89,10 +89,10 @@ DirectionChange(map) {
    }
 
    IncrementTail(){
-     var position = { x: this.positions[0].x,
-                      y: this.positions[0].y };
+     var headPosition = { x: this.positions[0].x,
+                          y: this.positions[0].y };
 
-     this.positions.unshift(position);
+     this.positions.unshift(headPosition);
      if (this.positions.length > this.maxLength){
        this.positions.pop()
      }
