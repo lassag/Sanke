@@ -7,7 +7,7 @@ Below you will find general guidelines for contributing to Sanke. These are most
 
 ## Table of Contents
 
-- [Code of Conduct](#Code of Conduct)
+- [Code of Conduct](#code-of-conduct)
 
 ## Code of Conduct
 ### Our Pledge
