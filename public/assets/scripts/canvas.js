@@ -132,7 +132,7 @@ function GameLoop() {
   snake.IncrementTail();
   snake.DirectionChange(map);
 
-  if (snake.EatFood(food, map)){
+  if (snake.EatFood(food)){
     IncrementScore();
     snake.maxLength++;
     food = Food.GetRandomFood(map);

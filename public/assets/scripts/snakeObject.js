@@ -79,7 +79,7 @@ DirectionChange(map) {
       }
   }
 
-  EatFood(food, map){
+  EatFood(food){
     if (  this.positions[0].x == food.x
        && this.positions[0].y == food.y){
          return true;
