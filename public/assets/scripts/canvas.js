@@ -10,8 +10,8 @@ var canvas = document.getElementById('snake');
 // Global variables
 var score = 0;
 var scorePerMove = 0;
-const ROWS = 30;
-const COLUMNS = 30;
+const ROWS = 32;
+const COLUMNS = 32;
 const FPS = 15;
 var isGameOver = false;
 const SECONDS = 1000;
@@ -20,6 +20,7 @@ const currentScoreBoard = document.getElementById('current-score');
 const scorePerMoveBoard = document.getElementById('score-per-move');
 const playerMovesBoard  = document.getElementById('player-moves');
 const bestScoreBoard    = document.getElementById('best-score');
+const snakeBox          = document.getElementById('snake-box');
 const bestScoreLocalStorage = 'bestScore';
 localStorage.setItem(bestScoreLocalStorage, 0);
 
@@ -36,7 +37,7 @@ const KEY = {
   D: 68
 }
 
-var map = new Map(ROWS, COLUMNS, canvas);
+var map = new Map(ROWS, COLUMNS, canvas, snakeBox);
 var snake = new Snake(map);
 var food = Food.GetRandomFood(map);
 
@@ -110,6 +111,8 @@ function Debug() {
   console.log(map);
   console.log(snake);
   console.log(food);
+  console.log(`Div width: ${snakeBox.offsetWidth}`);
+  console.log(`Div height: ${snakeBox.offsetHeight}`);
   console.log('----SCORES-----');
   console.log(`Score: ${score}`);
   console.log(`Moves: ${snake.moves}`);
@@ -120,7 +123,8 @@ map.DrawMap();
 map.DrawSnake(snake);
 map.DrawFood(food);
 
-Debug();
+
+//Debug();
 
 
 function GameLoop() {
