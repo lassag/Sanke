@@ -14,7 +14,7 @@ export class Snake {
     }],
     this.colorBody = '#45b6fe',
     this.colorHead = '#0e2433',
-    this.d,
+    this.direction = "RIGHT",
     this.maxLength = 3,
     this.moves = 0
 
@@ -22,21 +22,21 @@ export class Snake {
 
 Direction(keyCode,keys){
   if (keyCode == keys.ARROW_LEFT || keyCode == keys.A){
-    this.d = "LEFT";
+    this.direction = "LEFT";
   }
   else if (keyCode == keys.ARROW_UP || keyCode == keys.W){
-    this.d = "UP";
+    this.direction = "UP";
   }
   else if (keyCode == keys.ARROW_RIGHT || keyCode == keys.D){
-    this.d = "RIGHT";
+    this.direction = "RIGHT";
   }
   else if (keyCode == keys.ARROW_DOWN || keyCode == keys.S){
-    this.d = "DOWN";
+    this.direction = "DOWN";
   }
 }
 
 DirectionChange(map) {
-  switch(this.d){
+  switch(this.direction){
     case "LEFT":
       this.positions[0].x -= map.GetBlockSize();
       this.positions[0].y += 0;
@@ -66,7 +66,7 @@ DirectionChange(map) {
         || this.positions[0].y >= map.height
         || this.positions[0].y < 0
       ){
-        console.log('Snake is attempting to flee.');
+        console.log('Sanke is attempting to flee.');
         return true;
       }
   }
@@ -94,10 +94,11 @@ DirectionChange(map) {
      for (var i = 1; i < this.positions.length; i++){
        if (this.positions[0].x === this.positions[i].x
         && this.positions[0].y === this.positions[i].y){
-          console.log('Snake is touching itself!');
+          console.log('Sanke is touching itself!');
           return true;
         }
       }
+     console.log('The sanke is well raised')
      return false;
    }
 
@@ -106,7 +107,7 @@ DirectionChange(map) {
        x: map.GetBlockSize() * 5,
        y: map.GetBlockSize() * 5
      }],
-     this.d = 'RIGHT',
+     this.direction = 'RIGHT',
      this.maxLength = 0,
      this.moves = 0
    }
