@@ -18,10 +18,9 @@ export class Food {
       if ( snake.positions[i].x == this.x
         && snake.positions[i].y == this.y){
           return true;
-        } else {
-          return false;
         }
       }
+      return false;
     }
 
   }
