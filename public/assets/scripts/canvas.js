@@ -148,7 +148,6 @@ function GameLoop() {
   if (snake.EatFood(food)){
     IncrementScore();
     snake.maxLength++;
-    food.multiplier = 1 + (scorePerMove / food.value);
     food = Food.GetRandomFood(map);
   }
 
