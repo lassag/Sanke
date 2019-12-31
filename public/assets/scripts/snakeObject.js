@@ -16,7 +16,9 @@ export class Snake {
     this.colorHead = '#0e2433',
     this.direction = "RIGHT",
     this.maxLength = 3,
-    this.moves = 0
+    this.moves = 0,
+    this.fovPositions = [{x: this.positions[0].x,
+                          y: this.positions[0].y}]
 
   }
 
@@ -161,6 +163,65 @@ DirectionChange(map) {
        default:
         return false;
           break;
+     }
+   }
+   FieldOfView(map){
+     switch (this.direction){
+       case "RIGHT":
+       newFovPosition = [{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y - map.GetBlockSize()
+       },{
+         x: this.positions[0].x + map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       },{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y + map.GetBlockSize()
+       }]
+       this.fovPositions.push(newFovPosition)
+       break;
+
+       case "UP":
+       newFovPosition = [{
+         x: this.positions[0].x - map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       },{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y - map.GetBlockSize()
+       },{
+         x: this.positions[0].x + map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       }]
+       this.fovPositions.push(newFovPosition)
+       break;
+
+       case "LEFT":
+       newFovPosition = [{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y + map.GetBlockSize()
+       },{
+         x: this.positions[0].x - map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       },{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y - map.GetBlockSize()
+       }]
+       this.fovPositions.push(newFovPosition)
+       break;
+
+       case "DOWN":
+       newFovPosition = [{
+         x: this.positions[0].x - map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       },{
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y + map.GetBlockSize()
+       },{
+         x: this.positions[0].x + map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       }]
+       this.fovPositions.push(newFovPosition)
+       break;
      }
    }
 }

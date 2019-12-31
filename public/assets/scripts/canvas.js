@@ -131,8 +131,17 @@ function GameLoop() {
   map.DrawMap();
   map.DrawSnake(snake);
   map.DrawFood(food);
+  map.DrawSnakeVision(snake);
   RenderScore();
 
+  // for (let i = 0; i < snake.fovPositions.length; i++){
+  //   snake.fovPositions.pop()
+  // }
+  while (snake.fovPositions.length > 1){
+    snake.fovPositions.pop();
+  }
+
+  snake.FieldOfView(map);
   snake.IncrementTail();
   snake.DirectionChange(map);
 
