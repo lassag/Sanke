@@ -168,58 +168,74 @@ DirectionChange(map) {
    FieldOfView(map){
      switch (this.direction){
        case "RIGHT":
-       newFovPosition = [{
-         x: this.positions[0].x + 0,
+       var newFovPosition = {
+         x: this.positions[0].x 0,
          y: this.positions[0].y - map.GetBlockSize()
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
          y: this.positions[0].y + 0
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y + map.GetBlockSize()
-       }]
+       }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "UP":
-       newFovPosition = [{
+       var newFovPosition = {
          x: this.positions[0].x - map.GetBlockSize(),
          y: this.positions[0].y + 0
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y - map.GetBlockSize()
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
          y: this.positions[0].y + 0
-       }]
+       }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "LEFT":
-       newFovPosition = [{
+       var newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y + map.GetBlockSize()
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x - map.GetBlockSize(),
          y: this.positions[0].y + 0
-       },{
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y - map.GetBlockSize()
-       }]
+       }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "DOWN":
-       newFovPosition = [{
-         x: this.positions[0].x - map.GetBlockSize(),
-         y: this.positions[0].y + 0
-       },{
-         x: this.positions[0].x + 0,
-         y: this.positions[0].y + map.GetBlockSize()
-       },{
+       var newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
          y: this.positions[0].y + 0
-       }]
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y + map.GetBlockSize()
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
+         x: this.positions[0].x - map.GetBlockSize(),
+         y: this.positions[0].y + 0
+       }
        this.fovPositions.push(newFovPosition)
        break;
      }
