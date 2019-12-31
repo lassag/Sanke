@@ -169,7 +169,7 @@ DirectionChange(map) {
        case "RIGHT":
        var newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
-         y: this.positions[0].y - 2 * map.GetBlockSize()
+         y: this.positions[0].y - map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
