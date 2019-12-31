@@ -3,6 +3,7 @@ export class Food {
     this.x = x,
     this.y = y,
     this.value = 100,
+    this.exponent = 1,
     this.color = '#b11226'
   }
 
@@ -22,5 +23,9 @@ export class Food {
       }
       return false;
     }
+  GetValue(){
+    var val = 100;
+    this.value = +val ** +this.exponent
+  }
 
   }
