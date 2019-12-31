@@ -137,7 +137,7 @@ function GameLoop() {
   // for (let i = 0; i < snake.fovPositions.length; i++){
   //   snake.fovPositions.pop()
   // }
-  while (snake.fovPositions.length > 1){
+  while (snake.fovPositions.length > 0){
     snake.fovPositions.pop();
   }
 
@@ -148,7 +148,6 @@ function GameLoop() {
   if (snake.EatFood(food)){
     IncrementScore();
     snake.maxLength++;
-    food.multiplier = 1 + (scorePerMove / food.value);
     food = Food.GetRandomFood(map);
   }
 
