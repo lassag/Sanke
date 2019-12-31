@@ -2,20 +2,17 @@ import { Map }   from './mapObject.js';
 import { Snake } from './snakeObject.js';
 import { Food }  from './foodObject.js';
 
-
-
 var canvas = document.getElementById('snake');
-//var ctx = canvas.getContext('2d');
 
 // Global variables
-var score = 0;
+var score        = 0;
 var scorePerMove = 0;
-const ROWS = 32;
-const COLUMNS = 32;
-const FPS = 15;
-var isGameOver = false;
-const SECONDS = 1000;
-const REFRESH_RATE = SECONDS / FPS;
+const ROWS       = 32;
+const COLUMNS    = 32;
+const FPS        = 15;
+var isGameOver   = false;
+const SECONDS    = 1000;
+const REFRESH_RATE      = SECONDS / FPS;
 const currentScoreBoard = document.getElementById('current-score');
 const scorePerMoveBoard = document.getElementById('score-per-move');
 const playerMovesBoard  = document.getElementById('player-moves');
@@ -43,18 +40,15 @@ var food = Food.GetRandomFood(map);
 
 document.addEventListener("keydown", key => {
   snake.Direction(key.keyCode, KEY);
-  //console.log(key.keyCode);
-  //console.log(snake.d);
-  //console.log(snake);
 
-  // Start spillet ved trykk av SPACE
+  // Start game with the press of space bar
   if (key.keyCode == KEY.SPACEBAR) {
     ResetScore();
     isGameOver = false;
     GameLoop();
   }
 
-  // Restart spillet ved trykk av R
+  // Restart the game with the press of R
   if (key.keyCode == KEY.R) {
     isGameOver = true;
     ResetScore();
@@ -123,9 +117,7 @@ map.DrawMap();
 map.DrawSnake(snake);
 map.DrawFood(food);
 
-
 //Debug();
-
 
 function GameLoop() {
   map.DrawMap();
@@ -134,9 +126,6 @@ function GameLoop() {
   map.DrawSnakeVision(snake);
   RenderScore();
 
-  // for (let i = 0; i < snake.fovPositions.length; i++){
-  //   snake.fovPositions.pop()
-  // }
   while (snake.fovPositions.length > 0){
     snake.fovPositions.pop();
   }
