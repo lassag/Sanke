@@ -17,8 +17,7 @@ export class Snake {
     this.direction = "RIGHT",
     this.maxLength = 3,
     this.moves = 0,
-    this.fovPositions = [{x: this.positions[0].x,
-                          y: this.positions[0].y}]
+    this.fovPositions = []
 
   }
 
@@ -169,17 +168,17 @@ DirectionChange(map) {
      switch (this.direction){
        case "RIGHT":
        var newFovPosition = {
-         x: this.positions[0].x 0,
-         y: this.positions[0].y - map.GetBlockSize()
+         x: this.positions[0].x + map.GetBlockSize(),
+         y: this.positions[0].y - 2 * map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + map.GetBlockSize(),
+         x: this.positions[0].x + 2 * map.GetBlockSize(),
          y: this.positions[0].y + 0
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + 0,
+         x: this.positions[0].x + map.GetBlockSize(),
          y: this.positions[0].y + map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
@@ -188,34 +187,34 @@ DirectionChange(map) {
        case "UP":
        var newFovPosition = {
          x: this.positions[0].x - map.GetBlockSize(),
-         y: this.positions[0].y + 0
-       }
-       this.fovPositions.push(newFovPosition)
-       newFovPosition = {
-         x: this.positions[0].x + 0,
          y: this.positions[0].y - map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y - 2*map.GetBlockSize()
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
-         y: this.positions[0].y + 0
+         y: this.positions[0].y - map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "LEFT":
        var newFovPosition = {
-         x: this.positions[0].x + 0,
+         x: this.positions[0].x - map.GetBlockSize(),
          y: this.positions[0].y + map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x - map.GetBlockSize(),
+         x: this.positions[0].x - 2*map.GetBlockSize(),
          y: this.positions[0].y + 0
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + 0,
+         x: this.positions[0].x - map.GetBlockSize(),
          y: this.positions[0].y - map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
@@ -224,17 +223,17 @@ DirectionChange(map) {
        case "DOWN":
        var newFovPosition = {
          x: this.positions[0].x + map.GetBlockSize(),
-         y: this.positions[0].y + 0
-       }
-       this.fovPositions.push(newFovPosition)
-       newFovPosition = {
-         x: this.positions[0].x + 0,
          y: this.positions[0].y + map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
+         x: this.positions[0].x + 0,
+         y: this.positions[0].y + 2*map.GetBlockSize()
+       }
+       this.fovPositions.push(newFovPosition)
+       newFovPosition = {
          x: this.positions[0].x - map.GetBlockSize(),
-         y: this.positions[0].y + 0
+         y: this.positions[0].y + map.GetBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
