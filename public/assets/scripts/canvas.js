@@ -141,7 +141,7 @@ function GameLoop() {
     snake.fovPositions.pop();
   }
 
-  snake.FieldOfView(map);
+  snake.FieldOfView(map, map.GetBlockSize());
   snake.IncrementTail();
   snake.DirectionChange(map);
 
