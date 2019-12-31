@@ -14,6 +14,7 @@ export class Snake {
     }],
     this.colorBody = '#45b6fe',
     this.colorHead = '#0e2433',
+    this.colorFieldOfView = '#90ee90',
     this.direction = "RIGHT",
     this.maxLength = 3,
     this.moves = 0,
