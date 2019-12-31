@@ -114,9 +114,17 @@ DirectionChange(map) {
      this.positions = [{
        x: map.GetBlockSize() * 5,
        y: map.GetBlockSize() * 5
+     },
+     {
+       x: map.GetBlockSize() * 4,
+       y: map.GetBlockSize() * 5
+     },
+     {
+       x: map.GetBlockSize() * 3,
+       y: map.GetBlockSize() * 5
      }],
      this.direction = 'RIGHT',
-     this.maxLength = 0,
+     this.maxLength = 3,
      this.moves = 0
    }
 

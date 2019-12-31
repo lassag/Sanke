@@ -1,7 +1,7 @@
 export class Map {
-  constructor(numRows, numCols, canvas) {
-    this.width   = Math.floor(window.innerWidth / 1.5),
-    this.height  = Math.floor(window.innerHeight / 1.5),
+  constructor(numRows, numCols, canvas, snakeBox) {
+    this.width   = Math.floor(snakeBox.clientWidth),
+    this.height  = Math.floor(snakeBox.clientWidth),
     this.numRows = Math.floor(this.height / numRows),
     this.numCols = Math.floor(this.width / numCols),
     this.backgroundColor = '#838383',
