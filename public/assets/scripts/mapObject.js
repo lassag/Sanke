@@ -69,4 +69,11 @@ export class Map {
     this.ctx.fillStyle = food.color;
     this.ctx.fillRect(food.x, food.y, this.GetBlockSize(), this.GetBlockSize());
   }
+
+  DrawSnakeVision (snake) {
+    for (let i = 0; i < snake.fovPositions; i++) {
+      this.ctx.fillStyle = '#90ee90';
+      this.ctx.fillRect(snake.fovPositions[i].x, snake.fovPositions[i].y, this.GetBlockSize(), this.GetBlockSize());
+    }
+  }
 }
