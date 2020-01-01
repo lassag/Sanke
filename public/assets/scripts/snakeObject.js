@@ -241,5 +241,26 @@ DirectionChange(map) {
        break;
      }
    }
+ }
+
+   FoodIsWithinView(food){
+     for (let i = 0; i < this.fovPositions.length; i++){
+       if (this.fovPositions[i].x === food.x
+        && this.fovPositions[i].y === food.y){
+          return true;
+        }
+     }
+     return false;
+   }
+   TailIsWithinView(map){
+     for (let i = 0; i < this.fovPositions.length; i++){
+       for (let n = 1; n < this.positions.length; n++){
+       if (this.fovPositions[i].x === this.positions[n].x
+        && this.fovPositions[i].y === this.positions[n].y){
+          return true;
+          }
+        }
+     }
+     return false;
    }
 }
