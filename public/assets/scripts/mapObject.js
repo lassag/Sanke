@@ -6,7 +6,8 @@ export class Map {
     this.numCols = Math.floor(this.width / numCols),
     this.backgroundColor = '#838383',
     this.canvas = canvas,
-    this.ctx = canvas.getContext('2d')
+    this.ctx = canvas.getContext('2d'),
+    this.foodDistance
   }
 
   GetBlockSize() {
@@ -78,5 +79,10 @@ export class Map {
       this.ctx.globalAlpha = 1;
 
     }
+  }
+  GetDistanceFromFood(snake, food){
+    var x = food.x - snake.positions[0].x;
+    var y = food.y - snake.positions[0].y;
+    this.foodDistance = Math.sqrt(x**2 + y**2);
   }
 }
