@@ -131,6 +131,8 @@ p {
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-left: 8px;
+  margin-top: 3px;
 }
 
 .switch input {
@@ -187,5 +189,6 @@ input:checked + .slider:before {
 
 .switch-label {
   color: var(--dark-yellow);
-  margin: 10px 10px 10px 10px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
