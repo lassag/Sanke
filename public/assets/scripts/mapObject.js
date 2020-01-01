@@ -8,6 +8,7 @@ export class Map {
     this.canvas = canvas,
     this.ctx = canvas.getContext('2d'),
     this.foodDistance
+    this.angle
   }
 
   GetBlockSize() {
@@ -84,5 +85,12 @@ export class Map {
     var x = food.x - snake.positions[0].x;
     var y = food.y - snake.positions[0].y;
     this.foodDistance = Math.sqrt(x**2 + y**2);
+  }
+  GetAngle(snake, food){
+    var a = food.x - snake.positions[0].x;
+    var b = food.y - snake.positions[0].y;
+    var c = this.foodDistance;
+
+    this.angle = Math.acos(a/c) * 180 / Math.PI;
   }
 }
