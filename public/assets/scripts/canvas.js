@@ -142,8 +142,17 @@ function GameLoop() {
   }
 
   snake.FieldOfView(map, map.GetBlockSize());
+  if(snake.FoodIsWithinView(food)){
+    console.log(`Sanke see food!`);
+  }
+  if(snake.TailIsWithinView(map)){
+    console.log(`Sanke see tail!`);
+  }
   snake.IncrementTail();
   snake.DirectionChange(map);
+
+  map.GetDistanceFromFood(snake, food);
+  console.log(map.foodDistance);
 
   if (snake.EatFood(food)){
     IncrementScore();
