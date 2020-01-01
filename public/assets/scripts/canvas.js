@@ -142,9 +142,9 @@ function GameLoop() {
   snake.DirectionChange(map);
 
   map.GetDistanceFromFood(snake, food);
-  console.log(map.foodDistance);
-  map.GetAngle(snake, food);
-  console.log(map.angle);
+//  console.log(map.foodDistance);
+
+  map.DrawFoodLine(snake, food);
 
   if (snake.EatFood(food)){
     IncrementScore();

@@ -78,19 +78,22 @@ export class Map {
       this.ctx.globalAlpha = 0.2;
       this.ctx.fillRect(snake.fovPositions[i].x, snake.fovPositions[i].y, this.GetBlockSize(), this.GetBlockSize());
       this.ctx.globalAlpha = 1;
-
     }
   }
-  GetDistanceFromFood(snake, food){
+
+    DrawFoodLine(snake, food) {
+      this.ctx.fillStyle = '#800080';
+      this.ctx.globalAlpha = 0.2;
+      this.ctx.beginPath();
+      this.ctx.moveTo(snake.positions[0].x + (this.GetBlockSize() / 2), snake.positions[0].y + (this.GetBlockSize() / 2));
+      this.ctx.lineTo(food.x + (this.GetBlockSize() / 2), food.y + (this.GetBlockSize() / 2));
+      this.ctx.stroke();
+    }
+
+  GetDistanceFromFood(snake, food) {
     var x = food.x - snake.positions[0].x;
     var y = food.y - snake.positions[0].y;
     this.foodDistance = Math.sqrt(x**2 + y**2);
   }
-  GetAngle(snake, food){
-    var a = food.x - snake.positions[0].x;
-    var b = food.y - snake.positions[0].y;
-    var c = this.foodDistance;
 
-    this.angle = Math.acos(a/c) * 180 / Math.PI;
-  }
 }
