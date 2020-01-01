@@ -1,6 +1,7 @@
 import { Map }   from './mapObject.js';
 import { Snake } from './snakeObject.js';
 import { Food }  from './foodObject.js';
+import { Settings } from './settings.js';
 
 var canvas = document.getElementById('snake');
 
