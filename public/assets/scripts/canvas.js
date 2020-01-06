@@ -64,6 +64,14 @@ document.addEventListener("keydown", key => {
   }
 });
 
+settings.humanToggle.addEventListener('change', () => {
+  settings.ToggleHuman();
+});
+
+settings.snakeVisionToggle.addEventListener('change', () => {
+  settings.ToggleSnakeVision();
+});
+
 function IncrementScore() {
   score += food.value;
   scorePerMove = Math.floor(score / snake.moves);
