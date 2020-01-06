@@ -2,7 +2,8 @@ export class Settings {
   constructor() {
     this.IsHumanPlaying = true,
     this.IsSnakeVisionVisible = false,
-    this.humanToggle = document.getElementById('player-type')
+    this.humanToggle = document.getElementById('player-type'),
+    this.snakeVisionToggle = document.getElementById('snake-vision')
   }
 
   Read() {
@@ -15,8 +16,27 @@ export class Settings {
   }
 
   SetInitialState() {
-    this.IsHumanPlaying = true;
-    this.IsSnakeVisionVisible = false;
+    this.IsHumanPlaying      = true;
     this.humanToggle.checked = true;
+
+    this.IsSnakeVisionVisible      = false;
+    this.snakeVisionToggle.checked = false;
+
+  }
+
+  ToggleHuman() {
+    if (this.IsHumanPlaying) {
+      this.IsHumanPlaying = false;
+    } else {
+      this.IsHumanPlaying = true;
+    }
+  }
+
+  ToggleSnakeVision() {
+    if (this.IsSnakeVisionVisible) {
+      this.IsSnakeVisionVisible = false;
+    } else {
+      this.IsSnakeVisionVisible = true;
+    }
   }
 }
