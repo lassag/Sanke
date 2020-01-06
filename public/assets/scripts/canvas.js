@@ -122,7 +122,6 @@ function GameLoop() {
   map.DrawMap();
   map.DrawSnake(snake);
   map.DrawFood(food);
-  //map.DrawSnakeVision(snake);
   RenderScore();
 
   while (snake.fovPositions.length > 0){
@@ -139,10 +138,11 @@ function GameLoop() {
   snake.IncrementTail();
   snake.DirectionChange(map);
 
-  map.GetDistanceFromFood(snake, food);
-//  console.log(map.foodDistance);
-
-  //map.DrawFoodLine(snake, food);
+  // Draws snake vision and food line if it's not an human playing the game.
+  if (!settings.IsHumanPlaying) {
+    map.DrawSnakeVision(snake);
+    map.DrawFoodLine(snake, food);
+  }
 
   if (snake.EatFood(food)){
     IncrementScore();
