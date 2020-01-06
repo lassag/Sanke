@@ -4,16 +4,14 @@ import { Food }  from './foodObject.js';
 import { Settings } from './settings.js';
 
 var canvas = document.getElementById('snake');
-
+var settings = new Settings();
+settings.SetInitialState();
 // Global variables
 var score        = 0;
 var scorePerMove = 0;
 const ROWS       = 32;
 const COLUMNS    = 32;
-const FPS        = 15;
 var isGameOver   = false;
-const SECONDS    = 1000;
-const REFRESH_RATE      = SECONDS / FPS;
 const currentScoreBoard = document.getElementById('current-score');
 const scorePerMoveBoard = document.getElementById('score-per-move');
 const playerMovesBoard  = document.getElementById('player-moves');
@@ -124,7 +122,7 @@ function GameLoop() {
   map.DrawMap();
   map.DrawSnake(snake);
   map.DrawFood(food);
-  map.DrawSnakeVision(snake);
+  //map.DrawSnakeVision(snake);
   RenderScore();
 
   while (snake.fovPositions.length > 0){
@@ -144,7 +142,7 @@ function GameLoop() {
   map.GetDistanceFromFood(snake, food);
 //  console.log(map.foodDistance);
 
-  map.DrawFoodLine(snake, food);
+  //map.DrawFoodLine(snake, food);
 
   if (snake.EatFood(food)){
     IncrementScore();
@@ -157,6 +155,6 @@ function GameLoop() {
   }
 
   if (!snake.IsOutOfBounds(map) && !snake.IsTouchingItself()) {
-  setTimeout(GameLoop, REFRESH_RATE);
+  setTimeout(GameLoop, settings.GetRefreshRate());
   }
 }

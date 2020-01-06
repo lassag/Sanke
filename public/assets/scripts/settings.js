@@ -6,6 +6,17 @@ export class Settings {
   }
 
   Read() {
-    console.log();
+    console.log(this.REFRESH_RATE);
+  }
+
+  GetRefreshRate(FPS = 15) {
+    const SECONDS = 1000;
+    return (SECONDS / FPS);
+  }
+
+  SetInitialState() {
+    this.IsHumanPlaying = true;
+    this.IsSnakeVisionVisible = false;
+    this.humanToggle.checked = true;
   }
 }
