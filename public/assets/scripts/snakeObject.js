@@ -1,16 +1,16 @@
 export class Snake {
   constructor(map) {
     this.positions = [{
-      x: map.GetBlockSize() * 5,
-      y: map.GetBlockSize() * 5
+      x: map.getBlockSize() * 5,
+      y: map.getBlockSize() * 5
     },
     {
-      x: map.GetBlockSize() * 4,
-      y: map.GetBlockSize() * 5
+      x: map.getBlockSize() * 4,
+      y: map.getBlockSize() * 5
     },
     {
-      x: map.GetBlockSize() * 3,
-      y: map.GetBlockSize() * 5
+      x: map.getBlockSize() * 3,
+      y: map.getBlockSize() * 5
     }],
     this.colorBody = '#45b6fe',
     this.colorHead = '#0e2433',
@@ -22,7 +22,7 @@ export class Snake {
 
   }
 
-Direction(keyCode,keys){
+getDirection(keyCode,keys){
   if (keyCode == keys.ARROW_LEFT || keyCode == keys.A){
     if (this.direction != "RIGHT"){
       this.direction = "LEFT";
@@ -45,23 +45,23 @@ Direction(keyCode,keys){
   }
 }
 
-DirectionChange(map) {
+directionChange(map) {
   switch(this.direction){
     case "LEFT":
-      this.positions[0].x -= map.GetBlockSize();
+      this.positions[0].x -= map.getBlockSize();
       this.positions[0].y += 0;
       break;
     case "UP":
       this.positions[0].x += 0;
-      this.positions[0].y -= map.GetBlockSize();
+      this.positions[0].y -= map.getBlockSize();
       break;
     case "RIGHT":
-      this.positions[0].x += map.GetBlockSize();
+      this.positions[0].x += map.getBlockSize();
       this.positions[0].y += 0;
       break;
     case "DOWN":
       this.positions[0].x += 0;
-      this.positions[0].y += map.GetBlockSize();
+      this.positions[0].y += map.getBlockSize();
       break;
     default:
       this.positions[0].x += 0;
@@ -70,7 +70,7 @@ DirectionChange(map) {
     }
   }
 
-  IsOutOfBounds(map){
+  isOutOfBounds(map){
     if (   this.positions[0].x >= map.width
         || this.positions[0].x < 0
         || this.positions[0].y >= map.height
@@ -80,7 +80,7 @@ DirectionChange(map) {
       }
   }
 
-  EatFood(food){
+  eatFood(food){
     if (  this.positions[0].x == food.x
        && this.positions[0].y == food.y){
          return true;
@@ -89,7 +89,7 @@ DirectionChange(map) {
        }
    }
 
-   IncrementTail(){
+   incrementTail(){
      var headPosition = { x: this.positions[0].x,
                           y: this.positions[0].y };
 
@@ -99,7 +99,7 @@ DirectionChange(map) {
      }
    }
 
-   IsTouchingItself(){
+   isTouchingItself(){
      for (var i = 1; i < this.positions.length; i++){
        if (this.positions[0].x === this.positions[i].x
         && this.positions[0].y === this.positions[i].y){
@@ -109,29 +109,29 @@ DirectionChange(map) {
      return false;
    }
 
-   ResetSnake(map) {
+   resetSnake(map) {
      this.positions = [{
-       x: map.GetBlockSize() * 5,
-       y: map.GetBlockSize() * 5
+       x: map.getBlockSize() * 5,
+       y: map.getBlockSize() * 5
      },
      {
-       x: map.GetBlockSize() * 4,
-       y: map.GetBlockSize() * 5
+       x: map.getBlockSize() * 4,
+       y: map.getBlockSize() * 5
      },
      {
-       x: map.GetBlockSize() * 3,
-       y: map.GetBlockSize() * 5
+       x: map.getBlockSize() * 3,
+       y: map.getBlockSize() * 5
      }],
      this.direction = 'RIGHT',
      this.maxLength = 3,
      this.moves = 0
    }
 
-   IncrementMove() {
+   incrementMove() {
      this.moves++;
    }
 
-   IsMovementKey(keys, keyCode) {
+   isMovementKey(keys, keyCode) {
      switch(keyCode) {
        case keys.ARROW_LEFT:
         return true;
@@ -162,77 +162,77 @@ DirectionChange(map) {
           break;
      }
    }
-   FieldOfView(map){
-     for (let i = 1; i <= map.GetBlockSize(); i++){
+   fieldOfView(map){
+     for (let i = 1; i <= map.getBlockSize(); i++){
      switch (this.direction){
        case "RIGHT":
        var newFovPosition = {
-         x: this.positions[0].x + map.GetBlockSize(),
-         y: this.positions[0].y - i * map.GetBlockSize()
+         x: this.positions[0].x + map.getBlockSize(),
+         y: this.positions[0].y - i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + map.GetBlockSize() + i * map.GetBlockSize(),
+         x: this.positions[0].x + map.getBlockSize() + i * map.getBlockSize(),
          y: this.positions[0].y + 0
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + map.GetBlockSize(),
-         y: this.positions[0].y + i * map.GetBlockSize()
+         x: this.positions[0].x + map.getBlockSize(),
+         y: this.positions[0].y + i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "UP":
        var newFovPosition = {
-         x: this.positions[0].x - i * map.GetBlockSize(),
-         y: this.positions[0].y - map.GetBlockSize()
+         x: this.positions[0].x - i * map.getBlockSize(),
+         y: this.positions[0].y - map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
          x: this.positions[0].x + 0,
-         y: this.positions[0].y - map.GetBlockSize() - i * map.GetBlockSize()
+         y: this.positions[0].y - map.getBlockSize() - i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x + i * map.GetBlockSize(),
-         y: this.positions[0].y - map.GetBlockSize()
+         x: this.positions[0].x + i * map.getBlockSize(),
+         y: this.positions[0].y - map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "LEFT":
        var newFovPosition = {
-         x: this.positions[0].x - map.GetBlockSize(),
-         y: this.positions[0].y + i * map.GetBlockSize()
+         x: this.positions[0].x - map.getBlockSize(),
+         y: this.positions[0].y + i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x - map.GetBlockSize() - i * map.GetBlockSize(),
+         x: this.positions[0].x - map.getBlockSize() - i * map.getBlockSize(),
          y: this.positions[0].y + 0
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x - map.GetBlockSize(),
-         y: this.positions[0].y - i * map.GetBlockSize()
+         x: this.positions[0].x - map.getBlockSize(),
+         y: this.positions[0].y - i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
 
        case "DOWN":
        var newFovPosition = {
-         x: this.positions[0].x + i * map.GetBlockSize(),
-         y: this.positions[0].y + map.GetBlockSize()
+         x: this.positions[0].x + i * map.getBlockSize(),
+         y: this.positions[0].y + map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
          x: this.positions[0].x + 0,
-         y: this.positions[0].y + map.GetBlockSize() + i * map.GetBlockSize()
+         y: this.positions[0].y + map.getBlockSize() + i * map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
-         x: this.positions[0].x - i * map.GetBlockSize(),
-         y: this.positions[0].y + map.GetBlockSize()
+         x: this.positions[0].x - i * map.getBlockSize(),
+         y: this.positions[0].y + map.getBlockSize()
        }
        this.fovPositions.push(newFovPosition)
        break;
@@ -240,7 +240,7 @@ DirectionChange(map) {
    }
  }
 
-   FoodIsWithinView(food){
+   foodIsWithinView(food){
      for (let i = 0; i < this.fovPositions.length; i++){
        if (this.fovPositions[i].x === food.x
         && this.fovPositions[i].y === food.y){
@@ -249,7 +249,7 @@ DirectionChange(map) {
      }
      return false;
    }
-   TailIsWithinView(map){
+   tailIsWithinView(map){
      for (let i = 0; i < this.fovPositions.length; i++){
        for (let n = 1; n < this.positions.length; n++){
        if (this.fovPositions[i].x === this.positions[n].x
