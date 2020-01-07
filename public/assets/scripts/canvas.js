@@ -150,7 +150,7 @@ function GameLoop() {
     snake.fovPositions.pop();
   }
 
-  snake.FieldOfView(map, map.GetBlockSize());
+  snake.FieldOfView(map);
   if(snake.FoodIsWithinView(food)){
     console.log(`Sanke see food!`);
   }
