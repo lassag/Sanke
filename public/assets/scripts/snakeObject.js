@@ -159,7 +159,6 @@ directionChange(map) {
           break;
        default:
         return false;
-          break;
      }
    }
    fieldOfView(map){
