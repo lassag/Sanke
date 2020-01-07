@@ -1,19 +1,17 @@
-import { Map }   from './mapObject.js';
-import { Snake } from './snakeObject.js';
-import { Food }  from './foodObject.js';
+import { Map }      from './mapObject.js';
+import { Snake }    from './snakeObject.js';
+import { Food }     from './foodObject.js';
 import { Settings } from './settings.js';
 
 var canvas = document.getElementById('snake');
-
+var settings = new Settings();
+settings.SetInitialState();
 // Global variables
 var score        = 0;
 var scorePerMove = 0;
 const ROWS       = 32;
 const COLUMNS    = 32;
-const FPS        = 15;
 var isGameOver   = false;
-const SECONDS    = 1000;
-const REFRESH_RATE      = SECONDS / FPS;
 const currentScoreBoard = document.getElementById('current-score');
 const scorePerMoveBoard = document.getElementById('score-per-move');
 const playerMovesBoard  = document.getElementById('player-moves');
@@ -35,9 +33,9 @@ const KEY = {
   D: 68
 }
 
-var map = new Map(ROWS, COLUMNS, canvas, snakeBox);
+var map   = new Map(ROWS, COLUMNS, canvas, snakeBox);
 var snake = new Snake(map);
-var food = Food.GetRandomFood(map);
+var food  = Food.GetRandomFood(map);
 
 document.addEventListener("keydown", key => {
   snake.Direction(key.keyCode, KEY);
@@ -66,6 +64,18 @@ document.addEventListener("keydown", key => {
   }
 });
 
+settings.humanToggle.addEventListener('change', () => {
+  settings.ToggleHuman();
+});
+
+settings.snakeVisionToggle.addEventListener('change', () => {
+  settings.ToggleSnakeVision();
+});
+
+settings.foodLineToggle.addEventListener('change', () => {
+  settings.ToggleFoodLine();
+});
+
 function IncrementScore() {
   score += food.value;
   scorePerMove = Math.floor(score / snake.moves);
@@ -85,9 +95,9 @@ function IsCurrentScoreNewBest(score, best) {
 
 function RenderScore() {
   scorePerMoveBoard.innerText = scorePerMove;
-  playerMovesBoard.innerText = snake.moves;
+  playerMovesBoard.innerText  = snake.moves;
   currentScoreBoard.innerText = score;
-  bestScoreBoard.innerText = localStorage.getItem(bestScoreLocalStorage);
+  bestScoreBoard.innerText    = localStorage.getItem(bestScoreLocalStorage);
 }
 
 function ResetScore() {
@@ -124,8 +134,17 @@ function GameLoop() {
   map.DrawMap();
   map.DrawSnake(snake);
   map.DrawFood(food);
-  map.DrawSnakeVision(snake);
   RenderScore();
+
+  // Draws snake vision on screen if setting is true
+  if (settings.IsSnakeVisionVisible) {
+    map.DrawSnakeVision(snake);
+  }
+
+  // Draws food line on screen if setting is true
+  if (settings.IsFoodLineVisible) {
+    map.DrawFoodLine(snake, food);
+  }
 
   while (snake.fovPositions.length > 0){
     snake.fovPositions.pop();
@@ -141,10 +160,6 @@ function GameLoop() {
   snake.IncrementTail();
   snake.DirectionChange(map);
 
-  map.GetDistanceFromFood(snake, food);
-//  console.log(map.foodDistance);
-
-  map.DrawFoodLine(snake, food);
 
   if (snake.EatFood(food)){
     IncrementScore();
@@ -157,6 +172,6 @@ function GameLoop() {
   }
 
   if (!snake.IsOutOfBounds(map) && !snake.IsTouchingItself()) {
-  setTimeout(GameLoop, REFRESH_RATE);
+  setTimeout(GameLoop, settings.GetRefreshRate());
   }
 }
