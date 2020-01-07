@@ -1,51 +1,51 @@
 export class Settings {
   constructor() {
-    this.IsHumanPlaying       = true,
-    this.IsSnakeVisionVisible = false,
-    this.IsFoodLineVisible    = false,
+    this.isHumanPlaying       = true,
+    this.isSnakeVisionVisible = false,
+    this.isFoodLineVisible    = false,
     this.humanToggle          = document.getElementById('player-type'),
     this.snakeVisionToggle    = document.getElementById('snake-vision'),
     this.foodLineToggle       = document.getElementById('food-line')
   }
 
-  Read() {
+  read() {
     console.log(this.REFRESH_RATE);
   }
 
-  GetRefreshRate(FPS = 15) {
+  getRefreshRate(FPS = 15) {
     const SECONDS = 1000;
     return (SECONDS / FPS);
   }
 
-  SetInitialState() {
+  setInitialState() {
     // Is human playing
-    this.IsHumanPlaying      = true;
+    this.isHumanPlaying      = true;
     this.humanToggle.checked = true;
 
     // Snake Vision
-    this.IsSnakeVisionVisible       = false;
+    this.isSnakeVisionVisible       = false;
     this.snakeVisionToggle.disabled = true;
     this.snakeVisionToggle.checked  = false;
 
     // Food Line
-    this.IsFoodLineVisible       = false;
+    this.isFoodLineVisible       = false;
     this.foodLineToggle.disabled = true;
     this.foodLineToggle.checked  = false;
   }
 
-  ToggleHuman() {
-    if (this.IsHumanPlaying) {
-      this.IsHumanPlaying             = false;
+  toggleHuman() {
+    if (this.isHumanPlaying) {
+      this.isHumanPlaying             = false;
       this.snakeVisionToggle.disabled = false;
       this.foodLineToggle.disabled    = false;
     } else {
-      this.IsHumanPlaying = true;
+      this.isHumanPlaying = true;
 
-      this.IsSnakeVisionVisible       = false;
+      this.isSnakeVisionVisible       = false;
       this.snakeVisionToggle.disabled = true;
       this.snakeVisionToggle.checked  = false;
 
-      this.IsFoodLineVisible       = false;
+      this.isFoodLineVisible       = false;
       this.foodLineToggle.disabled = true;
       this.foodLineToggle.checked  = false;
 
@@ -53,19 +53,19 @@ export class Settings {
     }
   }
 
-  ToggleSnakeVision() {
-    if (this.IsSnakeVisionVisible) {
-      this.IsSnakeVisionVisible = false;
+  toggleSnakeVision() {
+    if (this.isSnakeVisionVisible) {
+      this.isSnakeVisionVisible = false;
     } else {
-      this.IsSnakeVisionVisible = true;
+      this.isSnakeVisionVisible = true;
     }
   }
 
-  ToggleFoodLine() {
-    if (this.IsFoodLineVisible) {
-      this.IsFoodLineVisible = false;
+  toggleFoodLine() {
+    if (this.isFoodLineVisible) {
+      this.isFoodLineVisible = false;
     } else {
-      this.IsFoodLineVisible = true;
+      this.isFoodLineVisible = true;
     }
   }
 }
