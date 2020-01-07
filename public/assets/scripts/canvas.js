@@ -41,7 +41,7 @@ document.addEventListener("keydown", key => {
   snake.getDirection(key.keyCode, KEY);
 
   // Start game with the press of space bar
-  if (key.keyCode == KEY.SPACEBAR) {
+  if (key.keyCode === KEY.SPACEBAR) {
     resetScore();
     isGameOver = false;
     gameLoop();
