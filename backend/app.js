@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
   res.render('snake');
