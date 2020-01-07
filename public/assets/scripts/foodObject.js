@@ -3,7 +3,7 @@ export class Food {
     this.x = x,
     this.y = y,
     this.value = 100,
-    this.color = '#b11226'
+    this.color = "#b11226"
   }
 
   static getRandomFood(map) {
@@ -15,8 +15,8 @@ export class Food {
 
   foodInTail(snake){
     for (var i = 1; i < snake.positions.length; i++){
-      if ( snake.positions[i].x == this.x
-        && snake.positions[i].y == this.y){
+      if ( snake.positions[i].x === this.x
+        && snake.positions[i].y === this.y){
           return true;
         }
       }
