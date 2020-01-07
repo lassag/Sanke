@@ -4,10 +4,10 @@ export class Map {
     this.height  = Math.floor(snakeBox.clientWidth),
     this.numRows = Math.floor(this.height / numRows),
     this.numCols = Math.floor(this.width / numCols),
-    this.backgroundColor = '#838383',
+    this.backgroundColor = "#838383",
     this.canvas = canvas,
-    this.ctx = canvas.getContext('2d'),
-    this.foodDistance
+    this.ctx = canvas.getContext("2d"),
+    this.foodDistance,
     this.angle
   }
 
@@ -22,8 +22,8 @@ export class Map {
 
   fitCanvasToContainer(){
   // Make it visually fill the positioned parent
-  this.canvas.style.width ='100%';
-  this.canvas.style.height='100%';
+  this.canvas.style.width  = "100%";
+  this.canvas.style.height = "100%";
   // ...then set the internal size to match
   this.canvas.width  = this.canvas.offsetWidth;
   this.canvas.height = this.canvas.offsetHeight;
@@ -82,7 +82,7 @@ export class Map {
   }
 
     drawFoodLine(snake, food) {
-      this.ctx.fillStyle = '#800080';
+      this.ctx.fillStyle = "#800080";
       this.ctx.globalAlpha = 0.2;
       this.ctx.beginPath();
       this.ctx.moveTo(snake.positions[0].x + (this.getBlockSize() / 2), snake.positions[0].y + (this.getBlockSize() / 2));

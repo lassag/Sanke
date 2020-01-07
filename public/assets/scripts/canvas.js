@@ -41,7 +41,7 @@ document.addEventListener("keydown", key => {
   snake.getDirection(key.keyCode, KEY);
 
   // Start game with the press of space bar
-  if (key.keyCode == KEY.SPACEBAR) {
+  if (key.keyCode === KEY.SPACEBAR) {
     resetScore();
     isGameOver = false;
     gameLoop();
@@ -116,12 +116,6 @@ function debug() {
   console.log(map);
   console.log(snake);
   console.log(food);
-  console.log(`Div width: ${snakeBox.offsetWidth}`);
-  console.log(`Div height: ${snakeBox.offsetHeight}`);
-  console.log('----SCORES-----');
-  console.log(`Score: ${score}`);
-  console.log(`Moves: ${snake.moves}`);
-  console.log(`SPM: ${scorePerMove}`);
 }
 
 map.drawMap();
@@ -151,12 +145,7 @@ function gameLoop() {
   }
 
   snake.fieldOfView(map);
-  if(snake.foodIsWithinView(food)){
-    console.log(`Sanke see food!`);
-  }
-  if(snake.tailIsWithinView(map)){
-    console.log(`Sanke see tail!`);
-  }
+
   snake.incrementTail();
   snake.directionChange(map);
 

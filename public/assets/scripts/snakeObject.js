@@ -23,23 +23,23 @@ export class Snake {
   }
 
 getDirection(keyCode,keys){
-  if (keyCode == keys.ARROW_LEFT || keyCode == keys.A){
-    if (this.direction != "RIGHT"){
+  if (keyCode === keys.ARROW_LEFT || keyCode === keys.A){
+    if (this.direction !== "RIGHT"){
       this.direction = "LEFT";
     }
   }
-  else if (keyCode == keys.ARROW_UP || keyCode == keys.W){
-    if (this.direction != "DOWN"){
+  else if (keyCode === keys.ARROW_UP || keyCode === keys.W){
+    if (this.direction !== "DOWN"){
       this.direction = "UP";
     }
   }
-  else if (keyCode == keys.ARROW_RIGHT || keyCode == keys.D){
-    if (this.direction != "LEFT"){
+  else if (keyCode === keys.ARROW_RIGHT || keyCode === keys.D){
+    if (this.direction !== "LEFT"){
       this.direction = "RIGHT";
     }
   }
-  else if (keyCode == keys.ARROW_DOWN || keyCode == keys.S){
-    if (this.direction != "UP"){
+  else if (keyCode === keys.ARROW_DOWN || keyCode === keys.S){
+    if (this.direction !== "UP"){
       this.direction = "DOWN";
     }
   }
@@ -159,7 +159,6 @@ directionChange(map) {
           break;
        default:
         return false;
-          break;
      }
    }
    fieldOfView(map){
