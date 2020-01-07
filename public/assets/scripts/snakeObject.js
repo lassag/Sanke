@@ -76,7 +76,6 @@ DirectionChange(map) {
         || this.positions[0].y >= map.height
         || this.positions[0].y < 0
       ){
-        console.log('Sanke is attempting to flee.');
         return true;
       }
   }
@@ -104,11 +103,9 @@ DirectionChange(map) {
      for (var i = 1; i < this.positions.length; i++){
        if (this.positions[0].x === this.positions[i].x
         && this.positions[0].y === this.positions[i].y){
-          console.log('Sanke is touching itself!');
           return true;
         }
       }
-     console.log('The sanke is well raised')
      return false;
    }
 
