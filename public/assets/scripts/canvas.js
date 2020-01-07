@@ -116,12 +116,6 @@ function debug() {
   console.log(map);
   console.log(snake);
   console.log(food);
-  console.log(`Div width: ${snakeBox.offsetWidth}`);
-  console.log(`Div height: ${snakeBox.offsetHeight}`);
-  console.log('----SCORES-----');
-  console.log(`Score: ${score}`);
-  console.log(`Moves: ${snake.moves}`);
-  console.log(`SPM: ${scorePerMove}`);
 }
 
 map.drawMap();
