@@ -13,8 +13,6 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/Northern-Web/Sanke">
 </p>
 
-
-Snake Game in JavaScript, using Nodejs. 
 ___
 
 Snake game that is a part of a larger project. The end goal is to get a better understanding of Machine Learning and evolutionary AI.
@@ -29,7 +27,7 @@ Me and my partner in crime has no prior experience with neither game development
 **Install required dependencies:**
 
     $ npm install
- 
+
 **Run the server:**
 
     $ npm start
@@ -37,7 +35,7 @@ Me and my partner in crime has no prior experience with neither game development
 **Access the game:**
 
     http://localhost:3000
-    
+
 ## Maintainers
 - [Lassag](https://github.com/lassag)
 - [Northern-Web](https://github.com/Northern-Web)
