@@ -145,12 +145,7 @@ function gameLoop() {
   }
 
   snake.fieldOfView(map);
-  if(snake.foodIsWithinView(food)){
-    console.log(`Sanke see food!`);
-  }
-  if(snake.tailIsWithinView(map)){
-    console.log(`Sanke see tail!`);
-  }
+
   snake.incrementTail();
   snake.directionChange(map);
 
