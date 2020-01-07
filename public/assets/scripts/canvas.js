@@ -1,6 +1,6 @@
-import { Map }   from './mapObject.js';
-import { Snake } from './snakeObject.js';
-import { Food }  from './foodObject.js';
+import { Map }      from './mapObject.js';
+import { Snake }    from './snakeObject.js';
+import { Food }     from './foodObject.js';
 import { Settings } from './settings.js';
 
 var canvas = document.getElementById('snake');
@@ -33,9 +33,9 @@ const KEY = {
   D: 68
 }
 
-var map = new Map(ROWS, COLUMNS, canvas, snakeBox);
+var map   = new Map(ROWS, COLUMNS, canvas, snakeBox);
 var snake = new Snake(map);
-var food = Food.GetRandomFood(map);
+var food  = Food.GetRandomFood(map);
 
 document.addEventListener("keydown", key => {
   snake.Direction(key.keyCode, KEY);
@@ -72,6 +72,10 @@ settings.snakeVisionToggle.addEventListener('change', () => {
   settings.ToggleSnakeVision();
 });
 
+settings.foodLineToggle.addEventListener('change', () => {
+  settings.ToggleFoodLine();
+});
+
 function IncrementScore() {
   score += food.value;
   scorePerMove = Math.floor(score / snake.moves);
@@ -91,9 +95,9 @@ function IsCurrentScoreNewBest(score, best) {
 
 function RenderScore() {
   scorePerMoveBoard.innerText = scorePerMove;
-  playerMovesBoard.innerText = snake.moves;
+  playerMovesBoard.innerText  = snake.moves;
   currentScoreBoard.innerText = score;
-  bestScoreBoard.innerText = localStorage.getItem(bestScoreLocalStorage);
+  bestScoreBoard.innerText    = localStorage.getItem(bestScoreLocalStorage);
 }
 
 function ResetScore() {
@@ -132,6 +136,16 @@ function GameLoop() {
   map.DrawFood(food);
   RenderScore();
 
+  // Draws snake vision on screen if setting is true
+  if (settings.IsSnakeVisionVisible) {
+    map.DrawSnakeVision(snake);
+  }
+
+  // Draws food line on screen if setting is true
+  if (settings.IsFoodLineVisible) {
+    map.DrawFoodLine(snake, food);
+  }
+
   while (snake.fovPositions.length > 0){
     snake.fovPositions.pop();
   }
@@ -146,11 +160,6 @@ function GameLoop() {
   snake.IncrementTail();
   snake.DirectionChange(map);
 
-  // Draws snake vision and food line if it's not an human playing the game.
-  if (!settings.IsHumanPlaying) {
-    map.DrawSnakeVision(snake);
-    map.DrawFoodLine(snake, food);
-  }
 
   if (snake.EatFood(food)){
     IncrementScore();
