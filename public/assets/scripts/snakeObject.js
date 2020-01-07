@@ -162,8 +162,8 @@ DirectionChange(map) {
           break;
      }
    }
-   FieldOfView(map,blocks){
-     for (let i = 1; i <= blocks; i++){
+   FieldOfView(map){
+     for (let i = 1; i <= map.GetBlockSize(); i++){
      switch (this.direction){
        case "RIGHT":
        var newFovPosition = {
